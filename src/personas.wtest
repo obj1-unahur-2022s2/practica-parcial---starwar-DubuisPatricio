@@ -1,0 +1,12 @@
+import personas.*
+describe "test de perla"{
+	const perla =new Atleta(edad=28,cantTecnicas=4,masaMuscular=6)
+test "perla entrenando" {
+	perla.entrenar(15)
+	perla.aprenderTecnica()
+	assert.equals(perla.potencia(),65)
+	assert.notThat(perla.esDestacada())
+	perla.aprenderTecnica()
+	assert.that(perla.esDestacada())
+}
+}

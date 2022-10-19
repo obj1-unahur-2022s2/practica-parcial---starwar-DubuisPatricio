@@ -1,0 +1,32 @@
+import planetas.*
+import personas.*
+describe "test planeta"{
+	const julieta=new Persona(edad=42)
+	const ana=new Atleta(edad=25)
+	const rosa=new Atleta(edad=45,cantTecnicas=8)
+	const perla =new Atleta(edad=28,cantTecnicas=4,masaMuscular=6)
+	const monica=new Docente(edad=45,cursos=6)
+	const luisa=new Docente(edad=35,cursos=1)
+	const triton=new Planeta()
+	method initialize(){
+		triton.agregarHabitante(julieta)
+		triton.agregarHabitante(ana)
+		triton.agregarHabitante(rosa)
+		triton.agregarHabitante(perla)
+		triton.agregarHabitante(monica)
+		triton.agregarHabitante(luisa)
+	}
+	test "delegacion diplomatica" {
+		assert.equals(triton.delegacionDiplomatica(),#{ana,rosa,monica})
+	}
+	test "valorInicialDefensa"{
+		assert.equals(triton.valorInicialDefensa(),2)
+	}
+	test "no es un planeta culto"{
+		assert.notThat(triton.esCulto())
+	}
+	test "potencia real"{
+		assert.equals(triton.potenciaReal(),184)
+	}
+}
+
